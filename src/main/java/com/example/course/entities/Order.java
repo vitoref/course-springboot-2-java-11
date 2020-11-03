@@ -99,6 +99,10 @@ public class Order implements Serializable {
 		return items;
 	}
 	
+	public Double getTotal() {
+		return items.stream().map(i -> i.getSubTotal()).reduce((a,b) -> a+b).get();
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
